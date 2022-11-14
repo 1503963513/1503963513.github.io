@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>nodejs实现文件传输 | 好好学习知识屋</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="zhuoer的个人博客">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="vuepress介绍, vuepress说明, zhuoer的博客, 卓儿的博客, 好好学习知识屋, 好好学习, 知识屋, 学习, 前端, node">
+    
+    <link rel="preload" href="/assets/css/0.styles.49862746.css" as="style"><link rel="preload" href="/assets/js/app.fa004b0a.js" as="script"><link rel="preload" href="/assets/js/4.a4bdc643.js" as="script"><link rel="preload" href="/assets/js/1.9f982d63.js" as="script"><link rel="preload" href="/assets/js/11.4626c983.js" as="script"><link rel="prefetch" href="/assets/js/10.b00568a0.js"><link rel="prefetch" href="/assets/js/12.e63f4eb0.js"><link rel="prefetch" href="/assets/js/13.a34f805b.js"><link rel="prefetch" href="/assets/js/14.1188adce.js"><link rel="prefetch" href="/assets/js/15.b4b71969.js"><link rel="prefetch" href="/assets/js/16.288bce78.js"><link rel="prefetch" href="/assets/js/17.2a8bb814.js"><link rel="prefetch" href="/assets/js/18.9a8a9890.js"><link rel="prefetch" href="/assets/js/19.3b403aee.js"><link rel="prefetch" href="/assets/js/2.4affd8fe.js"><link rel="prefetch" href="/assets/js/20.cd838d1c.js"><link rel="prefetch" href="/assets/js/21.71a849be.js"><link rel="prefetch" href="/assets/js/22.33e5a729.js"><link rel="prefetch" href="/assets/js/23.9aaaf03d.js"><link rel="prefetch" href="/assets/js/24.f5b453d0.js"><link rel="prefetch" href="/assets/js/25.d853549a.js"><link rel="prefetch" href="/assets/js/26.87a5a13a.js"><link rel="prefetch" href="/assets/js/27.be119420.js"><link rel="prefetch" href="/assets/js/28.bd4ae5b1.js"><link rel="prefetch" href="/assets/js/29.84aac7e4.js"><link rel="prefetch" href="/assets/js/30.f714f703.js"><link rel="prefetch" href="/assets/js/31.4c0a75e4.js"><link rel="prefetch" href="/assets/js/32.aeb346cb.js"><link rel="prefetch" href="/assets/js/33.4cc114b7.js"><link rel="prefetch" href="/assets/js/34.cec594fa.js"><link rel="prefetch" href="/assets/js/35.1e6a5b27.js"><link rel="prefetch" href="/assets/js/36.97f6b2f4.js"><link rel="prefetch" href="/assets/js/37.ef4a7b66.js"><link rel="prefetch" href="/assets/js/38.903a2458.js"><link rel="prefetch" href="/assets/js/39.279b27dd.js"><link rel="prefetch" href="/assets/js/40.73f97b79.js"><link rel="prefetch" href="/assets/js/41.fda425eb.js"><link rel="prefetch" href="/assets/js/42.6a10973a.js"><link rel="prefetch" href="/assets/js/43.01449fa6.js"><link rel="prefetch" href="/assets/js/44.9bf26bcc.js"><link rel="prefetch" href="/assets/js/45.54587aca.js"><link rel="prefetch" href="/assets/js/5.0ba58b04.js"><link rel="prefetch" href="/assets/js/6.12b8aa77.js"><link rel="prefetch" href="/assets/js/7.8f84c622.js"><link rel="prefetch" href="/assets/js/8.2575e800.js"><link rel="prefetch" href="/assets/js/9.461987c9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.49862746.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-edf8551e><div data-v-edf8551e><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-edf8551e data-v-edf8551e><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-24de1186 data-v-edf8551e data-v-edf8551e><h3 class="title" data-v-24de1186 data-v-24de1186>好好学习知识屋</h3> <p class="description" data-v-24de1186 data-v-24de1186>zhuoer的个人博客</p> <label id="box" class="inputBox" data-v-24de1186 data-v-24de1186><input type="password" value="" data-v-24de1186> <span data-v-24de1186>Konck! Knock!</span> <button data-v-24de1186>OK</button></label> <div class="footer" data-v-24de1186 data-v-24de1186><span data-v-24de1186><i class="iconfont reco-theme" data-v-24de1186></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-24de1186>vuePress-theme-reco</a></span> <span data-v-24de1186><i class="iconfont reco-copyright" data-v-24de1186></i> <a data-v-24de1186><span data-v-24de1186>卓儿</span>
+            
+          <span data-v-24de1186>2021 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-edf8551e><header class="navbar" data-v-edf8551e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/head.jpg" alt="好好学习知识屋" class="logo"> <span class="site-name">好好学习知识屋</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/javaScript/" class="nav-link"><i class="undefined"></i>
+  javaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      文档
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/" class="nav-link"><i class="undefined"></i>
+  vuepress-reco
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      链接
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-edf8551e></div> <aside class="sidebar" data-v-edf8551e><div class="personal-info-wrapper" data-v-29bd5bbe data-v-edf8551e><img src="/head.jpg" alt="author-avatar" class="personal-img" data-v-29bd5bbe> <h3 class="name" data-v-29bd5bbe>
+    卓儿
+  </h3> <div class="num" data-v-29bd5bbe><div data-v-29bd5bbe><h3 data-v-29bd5bbe>33</h3> <h6 data-v-29bd5bbe>文章</h6></div> <div data-v-29bd5bbe><h3 data-v-29bd5bbe>14</h3> <h6 data-v-29bd5bbe>标签</h6></div></div> <ul class="social-links" data-v-29bd5bbe></ul> <hr data-v-29bd5bbe></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/javaScript/" class="nav-link"><i class="undefined"></i>
+  javaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      文档
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/" class="nav-link"><i class="undefined"></i>
+  vuepress-reco
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      链接
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>2022</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blogs/JavaScript/2022/Mathobj.html" class="sidebar-link">内置对象Math</a></li><li><a href="/blogs/JavaScript/2022/canvasFontHuan.html" class="sidebar-link">canvas文字如何换行</a></li><li><a href="/blogs/JavaScript/2022/cloneDeep.html" class="sidebar-link">JS浅拷贝与深拷贝</a></li><li><a href="/blogs/JavaScript/2022/closure.html" class="sidebar-link">javascript闭包和继承</a></li><li><a href="/blogs/JavaScript/2022/gitxiezuo.html" class="sidebar-link">Git协作</a></li><li><a href="/blogs/JavaScript/2022/gulp-sass.html" class="sidebar-link">gulp-sass安装</a></li><li><a href="/blogs/JavaScript/2022/httphc.html" class="sidebar-link">http缓存</a></li><li><a href="/blogs/JavaScript/2022/jsAndroidios.html" class="sidebar-link">js调用 Android 和 ios 的方法</a></li><li><a href="/blogs/JavaScript/2022/jsArray.html" class="sidebar-link">Js的需要掌握的数组方法</a></li><li><a href="/blogs/JavaScript/2022/proxy.html" class="sidebar-link">Proxy代理和反射</a></li><li><a href="/blogs/JavaScript/2022/randomColor.html" class="sidebar-link">Js-好玩的随机色</a></li><li><a href="/blogs/JavaScript/2022/react-router-config.html" class="sidebar-link">自己写一个react-router-config</a></li><li><a href="/blogs/JavaScript/2022/reacthreeparties.html" class="sidebar-link">react第三方包推荐</a></li><li><a href="/blogs/JavaScript/2022/redux.html" class="sidebar-link">Redux用法</a></li><li><a href="/blogs/JavaScript/2022/sass.html" class="sidebar-link">预处理器sass用法详解</a></li><li><a href="/blogs/JavaScript/2022/setmap.html" class="sidebar-link">JavaScript-集合与映射</a></li><li><a href="/blogs/JavaScript/2022/uniUQR.html" class="sidebar-link">uni-app使用canvas绘制二维码</a></li><li><a href="/blogs/JavaScript/2022/uploadimg.html" aria-current="page" class="active sidebar-link">nodejs实现文件传输</a></li><li><a href="/blogs/JavaScript/2022/vueThelifecycle.html" class="sidebar-link">Vue生命周期</a></li><li><a href="/blogs/JavaScript/2022/vueVinstruction.html" class="sidebar-link">Vue指令详解</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-24de1186 data-v-edf8551e><h3 class="title" data-v-24de1186 data-v-24de1186>nodejs实现文件传输</h3> <!----> <label id="box" class="inputBox" data-v-24de1186 data-v-24de1186><input type="password" value="" data-v-24de1186> <span data-v-24de1186>Konck! Knock!</span> <button data-v-24de1186>OK</button></label> <div class="footer" data-v-24de1186 data-v-24de1186><span data-v-24de1186><i class="iconfont reco-theme" data-v-24de1186></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-24de1186>vuePress-theme-reco</a></span> <span data-v-24de1186><i class="iconfont reco-copyright" data-v-24de1186></i> <a data-v-24de1186><span data-v-24de1186>卓儿</span>
+            
+          <span data-v-24de1186>2021 - </span>
+          2022
+        </a></span></div></div> <div data-v-edf8551e><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">nodejs实现文件传输</h1> <div data-v-6b827e97><i class="iconfont reco-account" data-v-6b827e97><span data-v-6b827e97>卓儿</span></i> <i class="iconfont reco-date" data-v-6b827e97><span data-v-6b827e97>1/9/2022</span></i> <!----> <i class="tags iconfont reco-tag" data-v-6b827e97><span class="tag-item" data-v-6b827e97>node</span></i></div></div> <div class="theme-reco-content content__default"><p>今天利用node做一个文件上传功能，
+使用场景：这个在我们很多的应用当中都会遇到，比如我们注册用户，注册用户的时候都会要求上传头像；比如说大家做订单系统，商品有问题、故障，订单肯定会有退换货功能吧，要求上传图片等等。
+但是具体怎么操作，咋们一步一步来
+<strong>1.0 安装express模块</strong></p> <blockquote><p>$ npm install express</p></blockquote> <p><strong>1.1 这里我们用到formidable模块</strong>
+（在npm包管理器中，介绍这是一个Node.js模块，用于解析表单数据，特别是文件上传。）
+<img src="/assets/img/formidable.93b61ade.png"></p> <blockquote><p>$ npm install formidable</p></blockquote> <p><strong>1.2 创建文件一个file文件</strong>
+（创建文件这个就不细说了，看图就可以）
+<img src="data:image/png;base64,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"></p> <p>这里主要创建了两个文件夹public我用来放中间件和uploads用来存放图片，以及一个app.js文件。
+<strong>1.3 在public下写一个fileuploads.html文件</strong>
+（写个表单，然后用ajax上传）↓</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;body&gt;
+    &lt;!-- 添加表单元素 --&gt;
+    &lt;h2&gt;With &lt;code&gt;&quot;express&quot;&lt;/code&gt; npm package&lt;/h2&gt;
+    &lt;form class=&quot;form&quot;&gt;
+        &lt;div&gt;标题: &lt;input type=&quot;text&quot; name=&quot;title&quot; /&gt;&lt;/div&gt;
+        &lt;div&gt;File: &lt;input type=&quot;file&quot; name=&quot;someExpressFiles&quot; multiple=&quot;multiple&quot; /&gt;&lt;/div&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Upload&quot; /&gt;
+    &lt;/form&gt;
+    &lt;script&gt;
+        // 封装$ 使用自调用函数，封装$
+        ($ = s =&gt; document.querySelector(s))()
+        //使用ajax发送数据
+        $('.form').addEventListener('submit', function (eve) {
+            eve.preventDefault()    //阻止表单提交默认行为
+            let fromData = new FormData(eve.target)
+            
+            let xhr = new XMLHttpRequest
+            xhr.open('post', 'http://localhost:8527/public/files/student')   //请求的地址
+            xhr.send(fromData)      //发送请求携带formData
+            // 处理响应
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        const data = JSON.parse(xhr.responseText) 
+                        console.log('成功：', data)
+                    } else {
+                        console.error('失败')
+                    }
+                }
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><p>这里用了一个普通表单，给submit提交绑定了一个事件监听，因为点击会全页面刷新，（上传文件不需要跳转页面，我这里是服务端返回一个json数据），利用formDate构建ajax提交的数据。剩下就是一个ajax发送post请求，成功就返回data数据
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FormData" target="_blank" rel="noopener noreferrer">formDate<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> ＜
+<strong>1.4 app.js</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//引入模块
+const express = require('express')
+const cors = require('cors')
+const userFile = require('./public/files')    // ! files 模块
+//调用模块，创建应用
+const app = express()
+app.use(cors()) //跨域问题
+app.use(express.static('public'))   // ! 托管静态资源
+app.use('/public/files',userFile)  //静态路由，用use把router添加到中间件处理路径，我们就可以在主应用中，使用这个模块中的路由模块
+// ! 设置监听 8527 端口，到时候我们在浏览器就访问这个端口
+app.listen(8527,()=&gt;console.log(&quot;server running succeed&quot;))
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>先引入我们要用到的模块
+用static中间件来托管静态文件，包括图片、CSS 以及 JavaScript 文件（其实 <code>static()</code> 是 Express 提供的<strong>原生</strong>中间件函数之一）
+因为涉及到跨域(<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/CORS" target="_blank" rel="noopener noreferrer">CORS<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>)（或通俗地译为跨域资源共享）是一种基于 <a href="https://developer.mozilla.org/zh-CN/docs/Glossary/HTTP" target="_blank" rel="noopener noreferrer">HTTP<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 头的机制，该机制通过允许服务器标示除了它自己以外的其它<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Origin" target="_blank" rel="noopener noreferrer">origin<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>（域，协议和端口），这样浏览器可以访问加载这些资源。
+一个nodejs模块</p> <blockquote><p>安装 npm install cors
+用法： const cors = require('cors')	
+app.use(cors())</p></blockquote> <p><strong>1.5 在public下创建files.js文件</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//引入router方法，实现路由模块化
+const formidable = require('formidable')
+const path = require('path')
+const fliesRouter = require('express').Router()
+
+fliesRouter.post('/student',(request,response,next) =&gt; {
+    const form = formidable({
+        uploadDir: path.join(__dirname, '../uploads'), // 上传文件放置的目录
+        keepExtensions: true,           //包含源文件的扩展名
+        multiples: true                 //多个文件的倍数
+      })
+    
+      // 从请求中解析提交的数据（包括文本与文件数据）
+      // fields 中保存的是文本数据信息
+      // files 中保存的是文件数据相关信息
+      form.parse(request, (err, fields, files) =&gt; {
+        if (err) {  
+          next(err)
+          return
+        }
+        response.json({      //响应json数据
+          code: 200,
+          data: { fields, files }
+        })
+      })
+    })
+//导出
+module.exports = fliesRouter
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><p>介绍：
+首先 require() 路由模块（files.js），然后在 Express 应用中调用 use() 把 Router 添加到中间件处理路径中，就可以在主应用中使用这个模块中的路由处理器了。
+这个模块主要是对post请求的处理，
+**uploadDir:**用于放置上传文件的目录。以后可以使用fs.rename()来移动它们。
+**keepExtensions: {boolean}**默认false ，是否包含原始文件的扩展名
+**multiples:**当你调用.parse方法时，files参数(回调函数的)将包含使用HTML5 multiple属性提交多个文件的输入文件数组。fields参数将包含名称以'[]'结尾的字段的值数组。
+<a href="https://www.npmjs.com/package/formidable" target="_blank" rel="noopener noreferrer">formidable<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> npmjs有介绍
+<a href="http://www.expressjs.com.cn/guide/routing.html#express.Router" target="_blank" rel="noopener noreferrer">express.Router<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>  mdn也有介绍</p> <p><strong>然后我们在cmd 中启动node 监听</strong> <img src="data:image/png;base64,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">最后在浏览器中打开!<img src="/assets/img/wenjchaun.91217db8.gif">
+上传文件到服务器到这里就完成了，哈哈哈这个图有点大，将就看</p></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间: </span> <span class="time">6/1/2022, 10:00:47 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/blogs/JavaScript/2022/uniUQR.html" class="prev">
+            uni-app使用canvas绘制二维码
+          </a></span> <span class="next"><a href="/blogs/JavaScript/2022/vueThelifecycle.html">
+            Vue生命周期
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-1ab38110></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.fa004b0a.js" defer></script><script src="/assets/js/4.a4bdc643.js" defer></script><script src="/assets/js/1.9f982d63.js" defer></script><script src="/assets/js/11.4626c983.js" defer></script>
+  </body>
+</html>

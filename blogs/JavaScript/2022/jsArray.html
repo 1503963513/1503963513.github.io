@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Js的需要掌握的数组方法 | 好好学习知识屋</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="zhuoer的个人博客">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="vuepress介绍, vuepress说明, zhuoer的博客, 卓儿的博客, 好好学习知识屋, 好好学习, 知识屋, 学习, 前端, node">
+    
+    <link rel="preload" href="/assets/css/0.styles.49862746.css" as="style"><link rel="preload" href="/assets/js/app.fa004b0a.js" as="script"><link rel="preload" href="/assets/js/4.a4bdc643.js" as="script"><link rel="preload" href="/assets/js/1.9f982d63.js" as="script"><link rel="preload" href="/assets/js/31.4c0a75e4.js" as="script"><link rel="prefetch" href="/assets/js/10.b00568a0.js"><link rel="prefetch" href="/assets/js/11.4626c983.js"><link rel="prefetch" href="/assets/js/12.e63f4eb0.js"><link rel="prefetch" href="/assets/js/13.a34f805b.js"><link rel="prefetch" href="/assets/js/14.1188adce.js"><link rel="prefetch" href="/assets/js/15.b4b71969.js"><link rel="prefetch" href="/assets/js/16.288bce78.js"><link rel="prefetch" href="/assets/js/17.2a8bb814.js"><link rel="prefetch" href="/assets/js/18.9a8a9890.js"><link rel="prefetch" href="/assets/js/19.3b403aee.js"><link rel="prefetch" href="/assets/js/2.4affd8fe.js"><link rel="prefetch" href="/assets/js/20.cd838d1c.js"><link rel="prefetch" href="/assets/js/21.71a849be.js"><link rel="prefetch" href="/assets/js/22.33e5a729.js"><link rel="prefetch" href="/assets/js/23.9aaaf03d.js"><link rel="prefetch" href="/assets/js/24.f5b453d0.js"><link rel="prefetch" href="/assets/js/25.d853549a.js"><link rel="prefetch" href="/assets/js/26.87a5a13a.js"><link rel="prefetch" href="/assets/js/27.be119420.js"><link rel="prefetch" href="/assets/js/28.bd4ae5b1.js"><link rel="prefetch" href="/assets/js/29.84aac7e4.js"><link rel="prefetch" href="/assets/js/30.f714f703.js"><link rel="prefetch" href="/assets/js/32.aeb346cb.js"><link rel="prefetch" href="/assets/js/33.4cc114b7.js"><link rel="prefetch" href="/assets/js/34.cec594fa.js"><link rel="prefetch" href="/assets/js/35.1e6a5b27.js"><link rel="prefetch" href="/assets/js/36.97f6b2f4.js"><link rel="prefetch" href="/assets/js/37.ef4a7b66.js"><link rel="prefetch" href="/assets/js/38.903a2458.js"><link rel="prefetch" href="/assets/js/39.279b27dd.js"><link rel="prefetch" href="/assets/js/40.73f97b79.js"><link rel="prefetch" href="/assets/js/41.fda425eb.js"><link rel="prefetch" href="/assets/js/42.6a10973a.js"><link rel="prefetch" href="/assets/js/43.01449fa6.js"><link rel="prefetch" href="/assets/js/44.9bf26bcc.js"><link rel="prefetch" href="/assets/js/45.54587aca.js"><link rel="prefetch" href="/assets/js/5.0ba58b04.js"><link rel="prefetch" href="/assets/js/6.12b8aa77.js"><link rel="prefetch" href="/assets/js/7.8f84c622.js"><link rel="prefetch" href="/assets/js/8.2575e800.js"><link rel="prefetch" href="/assets/js/9.461987c9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.49862746.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-edf8551e><div data-v-edf8551e><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-edf8551e data-v-edf8551e><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-24de1186 data-v-edf8551e data-v-edf8551e><h3 class="title" data-v-24de1186 data-v-24de1186>好好学习知识屋</h3> <p class="description" data-v-24de1186 data-v-24de1186>zhuoer的个人博客</p> <label id="box" class="inputBox" data-v-24de1186 data-v-24de1186><input type="password" value="" data-v-24de1186> <span data-v-24de1186>Konck! Knock!</span> <button data-v-24de1186>OK</button></label> <div class="footer" data-v-24de1186 data-v-24de1186><span data-v-24de1186><i class="iconfont reco-theme" data-v-24de1186></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-24de1186>vuePress-theme-reco</a></span> <span data-v-24de1186><i class="iconfont reco-copyright" data-v-24de1186></i> <a data-v-24de1186><span data-v-24de1186>卓儿</span>
+            
+          <span data-v-24de1186>2021 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-edf8551e><header class="navbar" data-v-edf8551e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/head.jpg" alt="好好学习知识屋" class="logo"> <span class="site-name">好好学习知识屋</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/javaScript/" class="nav-link"><i class="undefined"></i>
+  javaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      文档
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/" class="nav-link"><i class="undefined"></i>
+  vuepress-reco
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      链接
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-edf8551e></div> <aside class="sidebar" data-v-edf8551e><div class="personal-info-wrapper" data-v-29bd5bbe data-v-edf8551e><img src="/head.jpg" alt="author-avatar" class="personal-img" data-v-29bd5bbe> <h3 class="name" data-v-29bd5bbe>
+    卓儿
+  </h3> <div class="num" data-v-29bd5bbe><div data-v-29bd5bbe><h3 data-v-29bd5bbe>33</h3> <h6 data-v-29bd5bbe>文章</h6></div> <div data-v-29bd5bbe><h3 data-v-29bd5bbe>14</h3> <h6 data-v-29bd5bbe>标签</h6></div></div> <ul class="social-links" data-v-29bd5bbe></ul> <hr data-v-29bd5bbe></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/javaScript/" class="nav-link"><i class="undefined"></i>
+  javaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      文档
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/" class="nav-link"><i class="undefined"></i>
+  vuepress-reco
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      链接
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>2022</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blogs/JavaScript/2022/Mathobj.html" class="sidebar-link">内置对象Math</a></li><li><a href="/blogs/JavaScript/2022/canvasFontHuan.html" class="sidebar-link">canvas文字如何换行</a></li><li><a href="/blogs/JavaScript/2022/cloneDeep.html" class="sidebar-link">JS浅拷贝与深拷贝</a></li><li><a href="/blogs/JavaScript/2022/closure.html" class="sidebar-link">javascript闭包和继承</a></li><li><a href="/blogs/JavaScript/2022/gitxiezuo.html" class="sidebar-link">Git协作</a></li><li><a href="/blogs/JavaScript/2022/gulp-sass.html" class="sidebar-link">gulp-sass安装</a></li><li><a href="/blogs/JavaScript/2022/httphc.html" class="sidebar-link">http缓存</a></li><li><a href="/blogs/JavaScript/2022/jsAndroidios.html" class="sidebar-link">js调用 Android 和 ios 的方法</a></li><li><a href="/blogs/JavaScript/2022/jsArray.html" aria-current="page" class="active sidebar-link">Js的需要掌握的数组方法</a></li><li><a href="/blogs/JavaScript/2022/proxy.html" class="sidebar-link">Proxy代理和反射</a></li><li><a href="/blogs/JavaScript/2022/randomColor.html" class="sidebar-link">Js-好玩的随机色</a></li><li><a href="/blogs/JavaScript/2022/react-router-config.html" class="sidebar-link">自己写一个react-router-config</a></li><li><a href="/blogs/JavaScript/2022/reacthreeparties.html" class="sidebar-link">react第三方包推荐</a></li><li><a href="/blogs/JavaScript/2022/redux.html" class="sidebar-link">Redux用法</a></li><li><a href="/blogs/JavaScript/2022/sass.html" class="sidebar-link">预处理器sass用法详解</a></li><li><a href="/blogs/JavaScript/2022/setmap.html" class="sidebar-link">JavaScript-集合与映射</a></li><li><a href="/blogs/JavaScript/2022/uniUQR.html" class="sidebar-link">uni-app使用canvas绘制二维码</a></li><li><a href="/blogs/JavaScript/2022/uploadimg.html" class="sidebar-link">nodejs实现文件传输</a></li><li><a href="/blogs/JavaScript/2022/vueThelifecycle.html" class="sidebar-link">Vue生命周期</a></li><li><a href="/blogs/JavaScript/2022/vueVinstruction.html" class="sidebar-link">Vue指令详解</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-24de1186 data-v-edf8551e><h3 class="title" data-v-24de1186 data-v-24de1186>Js的需要掌握的数组方法</h3> <!----> <label id="box" class="inputBox" data-v-24de1186 data-v-24de1186><input type="password" value="" data-v-24de1186> <span data-v-24de1186>Konck! Knock!</span> <button data-v-24de1186>OK</button></label> <div class="footer" data-v-24de1186 data-v-24de1186><span data-v-24de1186><i class="iconfont reco-theme" data-v-24de1186></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-24de1186>vuePress-theme-reco</a></span> <span data-v-24de1186><i class="iconfont reco-copyright" data-v-24de1186></i> <a data-v-24de1186><span data-v-24de1186>卓儿</span>
+            
+          <span data-v-24de1186>2021 - </span>
+          2022
+        </a></span></div></div> <div data-v-edf8551e><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">Js的需要掌握的数组方法</h1> <div data-v-6b827e97><i class="iconfont reco-account" data-v-6b827e97><span data-v-6b827e97>卓儿</span></i> <i class="iconfont reco-date" data-v-6b827e97><span data-v-6b827e97>4/28/2022</span></i> <!----> <i class="tags iconfont reco-tag" data-v-6b827e97><span class="tag-item" data-v-6b827e97>javascript</span></i></div></div> <div class="theme-reco-content content__default"><h4 id="js数组的基础方法"><a href="#js数组的基础方法" class="header-anchor">#</a> js数组的基础方法</h4> <p>（基础方法很好理解，就不做过多面描述）</p> <h4 id="array-shift"><a href="#array-shift" class="header-anchor">#</a> Array.shift()</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>删除数组第一位元素
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="array-unshift"><a href="#array-unshift" class="header-anchor">#</a> Array.unshift()</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>添加数组第一位元素
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="array-pop"><a href="#array-pop" class="header-anchor">#</a> Array.pop()</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>删除数组最后一位元素
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="array-push"><a href="#array-push" class="header-anchor">#</a> Array.push()</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>添加数组最后一位元素
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="array-concat"><a href="#array-concat" class="header-anchor">#</a> Array.concat()</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>拼接数组 // arr1.concat(arr2)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="array-reverse"><a href="#array-reverse" class="header-anchor">#</a> Array.reverse(）</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>反转数组
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="array-tostring"><a href="#array-tostring" class="header-anchor">#</a> Array.tostring()</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>数组转换成字符串
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="array-join"><a href="#array-join" class="header-anchor">#</a> Array.join()</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>数组转换成字符串，并写的一个参数，拼接符
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="array-slice"><a href="#array-slice" class="header-anchor">#</a> Array.slice()</h4> <p>截取数组</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>arr1.slice(1, 3)
+slice(start, end)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="array-splice"><a href="#array-splice" class="header-anchor">#</a> Array.splice()</h4> <p>splice(start, end, ...)
+开始位置，结束位置</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>删除
+删除下标3之后的3位数组元素
+arr1.splice(3, 3)
+替换
+将数组元素下标为2之后的两位数组元素，替换成'hello' 、 'word'
+arr1.splice(2, 2, 'hello', 'word')
+新增
+新增了一个'new'
+arr1.splice(2, 0, 'new')
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h4 id="array-sort-callback"><a href="#array-sort-callback" class="header-anchor">#</a> Array.sort(callback)</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>sort排序： 正序和倒序,有返回值，a-b正序，b-a倒序
+arr1.sort((a, b) =&gt;{
+ return a - b
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="es5新增"><a href="#es5新增" class="header-anchor">#</a> ES5新增：</h2> <h4 id="array-indexof-data-start"><a href="#array-indexof-data-start" class="header-anchor">#</a> Array.indexOf(data, start)</h4> <p>查找指定字符在数组中第一次出现的地方</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>arr1.indexof('a', 1)
+查找a，从下标为1的位置开始查找
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="array-filter"><a href="#array-filter" class="header-anchor">#</a> Array.filter()</h4> <p>字如其名，筛选过滤 有返回值，返回条件为true的元素</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>arr1.filter((ietm, index) =&gt; {
+	return /条件为true/
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h4 id="array-map"><a href="#array-map" class="header-anchor">#</a> Array.map()</h4> <p>遍历数组，有返回值</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>arr1.map((item，index)=&gt;{
+ return /值/
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h4 id="array-foreach"><a href="#array-foreach" class="header-anchor">#</a> Array.forEach()</h4> <p>遍历数组 没有返回值</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>arr1.forEach((item, index)=&gt;{
+ return /值/
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h4 id="array-fill"><a href="#array-fill" class="header-anchor">#</a> Array.fill()</h4> <p>填充数组</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = new Array(5).fill(null).map((item)=&gt;{
+ console.log(item)
+})
+// arr1 =&gt; [null, null, null, null, null]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="array-find-callback"><a href="#array-find-callback" class="header-anchor">#</a> Array.find(callback)</h4> <p>查找数组，返回满足条件的第一个元素的值</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>arr = [1,2,3,4,5,6]
+arr.find((item)=&gt; item &gt; 2)
+=&gt; 3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h4 id="array-reduce"><a href="#array-reduce" class="header-anchor">#</a> Array.reduce()</h4> <p>累加器，从左到右计算</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = [1,2,3,4,5,6]
+let value = arr.reduce((a, b) =&gt; a += b)
+原理： 
+1、a是数组下标为0的元素，b是数组下标为1的元素
+2、当a+b（1+2） = 3 ，这个时候数组下标0和1合并
+3、这个时候a数组下标为0，值为三，原本下标为2的元素，现在下标为1 [3,3,4,5,6]
+4、数组 a+b依次累加 ，直到数组全部累加
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h4 id="array-reduceright"><a href="#array-reduceright" class="header-anchor">#</a> Array.reduceRight()</h4> <p>和reduce()相似，唯一的不同就是 从右往左累加</p> <h4 id="array-from"><a href="#array-from" class="header-anchor">#</a> Array.from()</h4> <p>转换为数组</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>可以将字符串转换为数组
+可以将集合转换为数组
+列：
+let str = 'hello'
+let arr = Array.from(str)
+=&gt; ['h', 'e', 'l', 'l', 'o']
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h4 id="array-isarray"><a href="#array-isarray" class="header-anchor">#</a> Array.isArray()</h4> <p>判断是否是数组</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let str = 'hello'
+let arr = ['h', 'e', 'l', 'l', 'o']
+用法：
+let s = Array.isArray(str) // s =&gt; false
+let s = Array.isArray(arr) // s =&gt; true
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h4 id="array-keys"><a href="#array-keys" class="header-anchor">#</a> Array.keys()</h4> <p>迭代数组的下标</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>有next方法 或者使用for...of迭代
+const array1 = ['a', 'b', 'c'];
+const iterator = array1.keys();
+	for (const i of iterator) {
+		console.log(i) // =&gt; 0, 1, 2
+	}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h4 id="array-values"><a href="#array-values" class="header-anchor">#</a> Array.values()</h4> <p>迭代数组的值</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>有next方法 或者使用for...of迭代
+const array1 = ['a', 'b', 'c'];
+const iterator = array1.values();
+	for (const i of iterator) {
+		console.log(i) // a, b, c
+	}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h4 id="array-entries"><a href="#array-entries" class="header-anchor">#</a> Array.entries()</h4> <p>迭代数组
+返回一个数组对象，每个数组元素的 键/值对</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const array1 = ['a', 'b', 'c'];
+const iterator = array1.entries();
+	for (const i of iterator) {
+		console.log(i)
+	}
+// [0, 'a'], [1, 'b'], [2, 'c']
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="es6新增"><a href="#es6新增" class="header-anchor">#</a> ES6新增：</h2> <h4 id="array-some"><a href="#array-some" class="header-anchor">#</a> Array.some()</h4> <p>数组有一个元素满足条件才返回true，反之false，会遍历数组</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = [1,2,3,4,5,6]
+let bool = arr.some((item)=&gt; item &gt; 7) // false
+let bool = arr.some((item)=&gt; item &gt; 7) // true
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h4 id="array-every"><a href="#array-every" class="header-anchor">#</a> Array.every()</h4> <p>数组有一个元素满足条件才返回true，反之false，会遍历数组</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = [1，2,3,4,5,6]
+let bool = arr.every((item)=&gt; item &gt; 0) // true
+let bool = arr.every((item)=&gt; item &gt; 2) // false
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h4 id="array-includes"><a href="#array-includes" class="header-anchor">#</a> Array.includes()</h4> <p>判断数组是否包含指定的值, （全等于）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = [2,3,4,5,6]
+let bool = arr.includes('2') // false
+let bool = arr.includes(2) // true 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="es7"><a href="#es7" class="header-anchor">#</a> ES7+</h2> <h4 id="array-flat-num"><a href="#array-flat-num" class="header-anchor">#</a> Array.flat(num)</h4> <p>多维数组扁平化</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = [2,3,4,5,[[[[[[[[6]]]]]]]]]
+let bool = arr.flat(8) 
+num : 数组扁平化的次数
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间: </span> <span class="time">6/1/2022, 10:00:47 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/blogs/JavaScript/2022/jsAndroidios.html" class="prev">
+            js调用 Android 和 ios 的方法
+          </a></span> <span class="next"><a href="/blogs/JavaScript/2022/proxy.html">
+            Proxy代理和反射
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-1ab38110></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.fa004b0a.js" defer></script><script src="/assets/js/4.a4bdc643.js" defer></script><script src="/assets/js/1.9f982d63.js" defer></script><script src="/assets/js/31.4c0a75e4.js" defer></script>
+  </body>
+</html>
